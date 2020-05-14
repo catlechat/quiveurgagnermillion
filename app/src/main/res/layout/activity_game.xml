@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Game">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Question :"
+        android:textSize="30dp"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/question_ask"
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/ans1"
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/ans2"
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/ans3"
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/ans4"
+        android:textSize="40dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/btn_rep"
+        android:textSize="15sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="@color/colorAccent"
+        android:text="Repondre"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/btn_back"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
+        android:text="@string/back"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/btn_joker"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
+        android:text="JOKER"/>
+
+</LinearLayout>

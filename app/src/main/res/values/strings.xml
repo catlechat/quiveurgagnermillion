@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Qui Veut Gagner Des Millions</string>
+    <string name="main_question">Qui veut gagner des Millions ?</string>
+    <string name="start">Commencer</string>
+    <string name="add">Ajouter une question</string>
+    <string name="score">Score</string>
+    <string name="about">A propos</string>
+    <string name="quit">Quitter</string>
+    <string name="pop_title">Vous êtes sur de vouloir quitter?</string>
+    <string name="pop_yes">Oui</string>
+    <string name="pop_no">Non</string>
+    <string name="back">Revenir au menu</string>
+    <string name="about_text">CEAICOVSHCI Ivan 2i1</string>
+    <string name="del_score">Supprimer les scores</string>
+
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/colorAccent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/center"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_start"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/start"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_add"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/add"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_class"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/score"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_about"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/about"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:id="@+id/btn_quit"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:text="@string/quit"/>
+
+</LinearLayout>
