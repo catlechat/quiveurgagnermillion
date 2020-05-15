@@ -15,12 +15,23 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Game extends AppCompatActivity {
-    private final static int TIMER_TIME = 20;
+    public final static int TIMER_TIME = 20;
+    public final static int QUESTION_TOTAL = 3;
     private int index = TIMER_TIME;
     private Chronometer timer;
     private TextView question;
-    private Button back_to;
+    private Button back_to, answer1, answer2, answer3, answerTrue;
+
+    Question q1 = new Question("Do you know the way ?","Yes","No",
+            "What?","I can show you the way");
+    Question q2 = new Question("How high you are ?","five","1m85",
+            "very","yes");
+    Question q3 = new Question("What is my name ?","Leo","Paolo",
+            "Maxime","Ivan");
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -28,10 +39,26 @@ public class Game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        ArrayList<Question> questions = new ArrayList<>();
+        questions.add(q1);
+        questions.add(q2);
+        questions.add(q3);
+
         timer = findViewById(R.id.chrono);
         question = findViewById(R.id.q);
+        answer1 = findViewById(R.id.ans1);
+        answer2 = findViewById(R.id.ans2);
+        answer3 = findViewById(R.id.ans3);
+        answerTrue = findViewById(R.id.ansTrue);
         back_to = findViewById(R.id.back_to_menu_warning);
 
+        Random r = new Random();
+        int i = r.nextInt(QUESTION_TOTAL);
+        question.setText(questions.get(i).getAsk());
+        answer1.setText(questions.get(i).getAns1());
+        answer2.setText(questions.get(i).getAns2());
+        answer3.setText(questions.get(i).getAns3());
+        answerTrue.setText(questions.get(i).getAnsTrue());
 
         timer.start();
         timer.setCountDown(true);

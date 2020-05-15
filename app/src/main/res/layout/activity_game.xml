@@ -20,9 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/q"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:layout_margin="10dp"
         android:padding="5dp"
+        android:textColor="@color/colorWhitey"
         android:background="@color/colorPrimary"/>
 
     <LinearLayout
@@ -35,9 +36,9 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/ans1"
-            android:textSize="20dp"
             android:layout_margin="10dp"
             android:padding="5dp"
+            android:textColor="@color/colorWhitey"
             android:background="@color/colorPrimary"/>
         <Button
             android:layout_width="match_parent"
@@ -45,9 +46,9 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/ans2"
-            android:textSize="20dp"
             android:layout_margin="10dp"
             android:padding="5dp"
+            android:textColor="@color/colorWhitey"
             android:background="@color/colorPrimary"/>
     </LinearLayout>
     <LinearLayout
@@ -60,19 +61,19 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:id="@+id/ans3"
-            android:textSize="20dp"
             android:layout_margin="10dp"
             android:padding="5dp"
+            android:textColor="@color/colorWhitey"
             android:background="@color/colorPrimary"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:id="@+id/ans4"
-            android:textSize="20dp"
+            android:id="@+id/ansTrue"
             android:layout_margin="10dp"
             android:padding="5dp"
+            android:textColor="@color/colorWhitey"
             android:background="@color/colorPrimary"/>
     </LinearLayout>
     <LinearLayout
