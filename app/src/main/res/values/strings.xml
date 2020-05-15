@@ -12,5 +12,7 @@
     <string name="back">Revenir au menu</string>
     <string name="about_text">CEAICOVSHCI Ivan 2i1</string>
     <string name="del_score">Supprimer les scores</string>
+    <string name="realy_quit">Vous etes sur de voulour quitter? Vous allez perdre votre score!</string>
+
 
 </resources>
