@@ -21,6 +21,7 @@ import java.util.Random;
 public class Game extends AppCompatActivity {
     public final static int TIMER_TIME = 20;
     public final static int QUESTION_TOTAL = 3;
+    public final static int ANSWERS_TOTAL = 4;
     private int index = TIMER_TIME;
     private Chronometer timer;
     private TextView question;
@@ -52,14 +53,37 @@ public class Game extends AppCompatActivity {
         answerTrue = findViewById(R.id.ansTrue);
         back_to = findViewById(R.id.back_to_menu_warning);
 
+        //All this part is to fill the question and answer.. i should optimise it in the future
         Random r = new Random();
         int i = r.nextInt(QUESTION_TOTAL);
         question.setText(questions.get(i).getAsk());
-        answer1.setText(questions.get(i).getAns1());
-        answer2.setText(questions.get(i).getAns2());
-        answer3.setText(questions.get(i).getAns3());
-        answerTrue.setText(questions.get(i).getAnsTrue());
-
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(answer1);
+        buttons.add(answer2);
+        buttons.add(answer3);
+        buttons.add(answerTrue);
+        int j = r.nextInt(ANSWERS_TOTAL);
+        if(j==0){//buttons.get(j).getText()==""
+            buttons.get(j).setText(questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(questions.get(i).getAns1());
+            buttons.get(j+2).setText(questions.get(i).getAns2());
+            buttons.get(j+3).setText(questions.get(i).getAns3());
+        }else if(j==1){
+            buttons.get(j-1).setText(questions.get(i).getAns3());
+            buttons.get(j).setText(questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(questions.get(i).getAns1());
+            buttons.get(j+2).setText(questions.get(i).getAns2());
+        }else if(j==2){
+            buttons.get(j-2).setText(questions.get(i).getAns3());
+            buttons.get(j-1).setText(questions.get(i).getAns2());
+            buttons.get(j).setText(questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(questions.get(i).getAns1());
+        }else{
+            buttons.get(j-3).setText(questions.get(i).getAns3());
+            buttons.get(j-2).setText(questions.get(i).getAns2());
+            buttons.get(j-1).setText(questions.get(i).getAns2());
+            buttons.get(j).setText(questions.get(i).getAnsTrue());
+        }
         timer.start();
         timer.setCountDown(true);
         timer.setBase(SystemClock.elapsedRealtime() + (TIMER_TIME * 1000));
