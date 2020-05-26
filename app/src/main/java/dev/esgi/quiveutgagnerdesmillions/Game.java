@@ -37,16 +37,56 @@ public class Game extends AppCompatActivity {
 
         timer = findViewById(R.id.chrono);
         question = findViewById(R.id.q);
-        answer1 = findViewById(R.id.ans1);
-        answer2 = findViewById(R.id.ans2);
-        answer3 = findViewById(R.id.ans3);
-        answerTrue = findViewById(R.id.ansTrue);
         back_to = findViewById(R.id.back_to_menu_warning);
 
-        //All this part is to fill the question and answer.. i should optimise it in the future
+
         Random r = new Random();
         i = r.nextInt(MainActivity.questions.size());
         question.setText(MainActivity.questions.get(i).getAsk());
+
+        int give = r.nextInt(ANSWERS_TOTAL+1);
+        switch(give) {
+            case 1:
+                // the answer is top left
+                answerTrue = findViewById(R.id.ans1);
+                answer2 = findViewById(R.id.ans2);
+                answer3 = findViewById(R.id.ans3);
+                answer1 = findViewById(R.id.ansTrue);
+                break;
+            case 2:
+                // the answer is top right
+                answer1 = findViewById(R.id.ans1);
+                answerTrue = findViewById(R.id.ans2);
+                answer3 = findViewById(R.id.ans3);
+                answer2 = findViewById(R.id.ansTrue);
+                break;
+            case 3:
+                // the answer is bottom left
+                answer1 = findViewById(R.id.ans1);
+                answer2 = findViewById(R.id.ans2);
+                answerTrue = findViewById(R.id.ans3);
+                answer3 = findViewById(R.id.ansTrue);
+                break;
+            case 4:
+                // the answer is bottom right
+                answer1 = findViewById(R.id.ans1);
+                answer2 = findViewById(R.id.ans2);
+                answer3 = findViewById(R.id.ans3);
+                answerTrue = findViewById(R.id.ansTrue);
+                break;
+            default:
+                answerTrue = findViewById(R.id.ans1);
+                answer2 = findViewById(R.id.ans2);
+                answer3 = findViewById(R.id.ans3);
+                answer1 = findViewById(R.id.ansTrue);
+                break;
+        }
+        answerTrue.setText(MainActivity.questions.get(i).getAnsTrue());
+        answer1.setText(MainActivity.questions.get(i).getAns1());
+        answer2.setText(MainActivity.questions.get(i).getAns2());
+        answer3.setText(MainActivity.questions.get(i).getAns3());
+
+        /*
         ArrayList<Button> buttons = new ArrayList<>();
         buttons.add(answer1);
         buttons.add(answer2);
@@ -74,7 +114,7 @@ public class Game extends AppCompatActivity {
             buttons.get(j-1).setText(MainActivity.questions.get(i).getAns2());
             buttons.get(j).setText(MainActivity.questions.get(i).getAnsTrue());
         }
-
+        */
 
 
 
