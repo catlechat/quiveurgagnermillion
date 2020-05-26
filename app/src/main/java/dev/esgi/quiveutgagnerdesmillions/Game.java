@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -19,31 +20,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Game extends AppCompatActivity {
-    public final static int TIMER_TIME = 20;
-    public final static int QUESTION_TOTAL = 3;
+    public final static int TIMER_TIME = 21;
     public final static int ANSWERS_TOTAL = 4;
     private int index = TIMER_TIME;
     private Chronometer timer;
     private TextView question;
     private Button back_to, answer1, answer2, answer3, answerTrue;
-
-    Question q1 = new Question("Do you know the way ?","Yes","No",
-            "What?","I can show you the way");
-    Question q2 = new Question("How high you are ?","five","1m85",
-            "very","yes");
-    Question q3 = new Question("What is my name ?","Leo","Paolo",
-            "Maxime","Ivan");
+    //
+    int i;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-        ArrayList<Question> questions = new ArrayList<>();
-        questions.add(q1);
-        questions.add(q2);
-        questions.add(q3);
 
         timer = findViewById(R.id.chrono);
         question = findViewById(R.id.q);
@@ -55,35 +45,39 @@ public class Game extends AppCompatActivity {
 
         //All this part is to fill the question and answer.. i should optimise it in the future
         Random r = new Random();
-        int i = r.nextInt(QUESTION_TOTAL);
-        question.setText(questions.get(i).getAsk());
+        i = r.nextInt(MainActivity.questions.size());
+        question.setText(MainActivity.questions.get(i).getAsk());
         ArrayList<Button> buttons = new ArrayList<>();
         buttons.add(answer1);
         buttons.add(answer2);
         buttons.add(answer3);
         buttons.add(answerTrue);
         int j = r.nextInt(ANSWERS_TOTAL);
-        if(j==0){//buttons.get(j).getText()==""
-            buttons.get(j).setText(questions.get(i).getAnsTrue());
-            buttons.get(j+1).setText(questions.get(i).getAns1());
-            buttons.get(j+2).setText(questions.get(i).getAns2());
-            buttons.get(j+3).setText(questions.get(i).getAns3());
+        if(j==0){
+            buttons.get(j).setText(MainActivity.questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(MainActivity.questions.get(i).getAns1());
+            buttons.get(j+2).setText(MainActivity.questions.get(i).getAns2());
+            buttons.get(j+3).setText(MainActivity.questions.get(i).getAns3());
         }else if(j==1){
-            buttons.get(j-1).setText(questions.get(i).getAns3());
-            buttons.get(j).setText(questions.get(i).getAnsTrue());
-            buttons.get(j+1).setText(questions.get(i).getAns1());
-            buttons.get(j+2).setText(questions.get(i).getAns2());
+            buttons.get(j-1).setText(MainActivity.questions.get(i).getAns3());
+            buttons.get(j).setText(MainActivity.questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(MainActivity.questions.get(i).getAns1());
+            buttons.get(j+2).setText(MainActivity.questions.get(i).getAns2());
         }else if(j==2){
-            buttons.get(j-2).setText(questions.get(i).getAns3());
-            buttons.get(j-1).setText(questions.get(i).getAns2());
-            buttons.get(j).setText(questions.get(i).getAnsTrue());
-            buttons.get(j+1).setText(questions.get(i).getAns1());
+            buttons.get(j-2).setText(MainActivity.questions.get(i).getAns3());
+            buttons.get(j-1).setText(MainActivity.questions.get(i).getAns2());
+            buttons.get(j).setText(MainActivity.questions.get(i).getAnsTrue());
+            buttons.get(j+1).setText(MainActivity.questions.get(i).getAns1());
         }else{
-            buttons.get(j-3).setText(questions.get(i).getAns3());
-            buttons.get(j-2).setText(questions.get(i).getAns2());
-            buttons.get(j-1).setText(questions.get(i).getAns2());
-            buttons.get(j).setText(questions.get(i).getAnsTrue());
+            buttons.get(j-3).setText(MainActivity.questions.get(i).getAns3());
+            buttons.get(j-2).setText(MainActivity.questions.get(i).getAns2());
+            buttons.get(j-1).setText(MainActivity.questions.get(i).getAns2());
+            buttons.get(j).setText(MainActivity.questions.get(i).getAnsTrue());
         }
+
+
+
+
         timer.start();
         timer.setCountDown(true);
         timer.setBase(SystemClock.elapsedRealtime() + (TIMER_TIME * 1000));
@@ -128,5 +122,52 @@ public class Game extends AppCompatActivity {
             }
         });
 
+
+        answer1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer1.setTextColor(Color.RED);
+                Intent i = new Intent(Game.this, Gameover.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        answer2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer2.setTextColor(Color.RED);
+                Intent i = new Intent(Game.this, Gameover.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        answer3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answer3.setTextColor(Color.RED);
+                Intent i = new Intent(Game.this, Gameover.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        answerTrue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                answerTrue.setTextColor(Color.GREEN);
+                if(!MainActivity.questions.isEmpty()) {
+                    //retirer la question en cours
+                    MainActivity.questions.remove(i);
+                    if (MainActivity.questions.isEmpty()) {
+                        Intent j = new Intent(Game.this, Gameover.class);
+                        startActivity(j);
+                        finish();
+                    }else{
+                        Intent k = new Intent(Game.this, Game.class);
+                        startActivity(k);
+                        finish();
+                    }
+                }
+            }
+        });
     }
 }

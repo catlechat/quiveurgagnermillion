@@ -1,6 +1,7 @@
 package dev.esgi.quiveutgagnerdesmillions;
 
 public class Question {
+    private Boolean status;
     private String ask;
     private String ans1;
     private String ans2;
@@ -8,11 +9,20 @@ public class Question {
     private String ansTrue;
 
     public Question(String ask, String ans1, String ans2, String ans3, String ansTrue) {
+        this.status = false;
         this.ask = ask;
         this.ans1 = ans1;
         this.ans2 = ans2;
         this.ans3 = ans3;
         this.ansTrue = ansTrue;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public String getAsk() {

@@ -17,8 +17,19 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Button btn_start, btn_add, btn_class,btn_about,btn_quit;
 
+    public static ArrayList<Question> questions = new ArrayList<>();
+    public static Question q1 = new Question("Do you know the way ?","Yes","No",
+            "What?","I can show you the way");
+    public static Question q2 = new Question("How high you are ?","five","1m85",
+            "very","yes");
+    public static Question q3 = new Question("What is my name ?","Leo","Paolo",
+            "Maxime","Ivan");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        questions.add(q1);
+        questions.add(q2);
+        questions.add(q3);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
