@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Game extends AppCompatActivity {
@@ -44,41 +42,35 @@ public class Game extends AppCompatActivity {
         i = r.nextInt(MainActivity.questions.size());
         question.setText(MainActivity.questions.get(i).getAsk());
 
-        int give = r.nextInt(ANSWERS_TOTAL+1);
+        int give = r.nextInt(ANSWERS_TOTAL);
         switch(give) {
-            case 1:
+            case 0:
                 // the answer is top left
                 answerTrue = findViewById(R.id.ans1);
                 answer2 = findViewById(R.id.ans2);
                 answer3 = findViewById(R.id.ans3);
                 answer1 = findViewById(R.id.ansTrue);
                 break;
-            case 2:
+            case 1:
                 // the answer is top right
                 answer1 = findViewById(R.id.ans1);
                 answerTrue = findViewById(R.id.ans2);
                 answer3 = findViewById(R.id.ans3);
                 answer2 = findViewById(R.id.ansTrue);
                 break;
-            case 3:
+            case 2:
                 // the answer is bottom left
                 answer1 = findViewById(R.id.ans1);
                 answer2 = findViewById(R.id.ans2);
                 answerTrue = findViewById(R.id.ans3);
                 answer3 = findViewById(R.id.ansTrue);
                 break;
-            case 4:
+            case 3:
                 // the answer is bottom right
                 answer1 = findViewById(R.id.ans1);
                 answer2 = findViewById(R.id.ans2);
                 answer3 = findViewById(R.id.ans3);
                 answerTrue = findViewById(R.id.ansTrue);
-                break;
-            default:
-                answerTrue = findViewById(R.id.ans1);
-                answer2 = findViewById(R.id.ans2);
-                answer3 = findViewById(R.id.ans3);
-                answer1 = findViewById(R.id.ansTrue);
                 break;
         }
         answerTrue.setText(MainActivity.questions.get(i).getAnsTrue());
