@@ -17,6 +17,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Button btn_start, btn_add, btn_class,btn_about,btn_quit;
 
+    public static int score = 0;
     public static ArrayList<Question> questions = new ArrayList<>();
     public static Question q1 = new Question("What is the capital of France","Italy","Lyon",
             "Nantes","Paris");

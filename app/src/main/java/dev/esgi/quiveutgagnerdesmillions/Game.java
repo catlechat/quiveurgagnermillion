@@ -138,6 +138,7 @@ public class Game extends AppCompatActivity {
                         .setPositiveButton(getResources().getString(R.string.pop_yes), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                MainActivity.score = 0;
                                 Intent j = new Intent(Game.this, MainActivity.class);
                                 startActivity(j);
                                 finish();
@@ -191,9 +192,11 @@ public class Game extends AppCompatActivity {
                     MainActivity.questions.remove(i);
                     if (MainActivity.questions.isEmpty()) {
                         Intent j = new Intent(Game.this, Gameover.class);
+                        j.putExtra("win",true);
                         startActivity(j);
                         finish();
                     }else{
+                        MainActivity.score = MainActivity.score + 10;
                         Intent k = new Intent(Game.this, Game.class);
                         startActivity(k);
                         finish();
